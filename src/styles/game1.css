@@ -1,0 +1,90 @@
+﻿/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.difficulty-buttons {
+    margin-bottom: 20px;
+}
+
+    .difficulty-buttons button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+        .difficulty-buttons button:hover {
+            background-color: #45a049;
+        }
+
+#backButton {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+    #backButton:hover {
+        background-color: #d32f2f;
+    }
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .difficulty-buttons button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #backButton {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

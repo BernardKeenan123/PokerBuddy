@@ -1,0 +1,136 @@
+/* Full-screen cards page */
+.cards-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Back button in top-left */
+.back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+  background: #444;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.back-btn:hover {
+  background: #666;
+}
+
+/* Container for the main Cards menu */
+.cards-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cards button in the middle */
+.cards-main-btn {
+  background-color: #474747;
+  border: 5px solid white;
+  width: 7.5rem;
+  height: 7.5rem;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cards-main-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Wrapper so options can be positioned relative to Cards */
+.cards-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Covers the Cards button area */
+.cards-options {
+  position: absolute;
+  inset: 0;                 /* fill the wrapper */
+  pointer-events: none;     /* don't block clicks when hidden */
+}
+
+/* Blue orbit buttons (Hand Recognition / Hole Card Quiz / etc.) */
+.cards-option-btn {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  font-size: 0.9rem;
+  background-color: #1976d2;
+  border-radius: 50%;
+  border: 5px solid white;
+  color: white;
+  cursor: pointer;
+
+  /* Start at centre of Cards */
+  top: 50%;
+  left: 50%;
+
+  /* offsets from centre (default 0) */
+  --tx: 0rem;
+  --ty: 0rem;
+
+  /* centre on Cards, then apply offsets, then scale */
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(0);
+  opacity: 0;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.cards-option-btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Orbit radius: distance from centre of Cards to menu buttons */
+:root {
+  --cards-orbit: 10rem;
+}
+
+/* When show=true, move them out from the centre equally */
+
+/* Hand Recognition: above Cards */
+.cards-options.show #hand-recognition-btn {
+  --tx: 0rem;
+  --ty: calc(-1 * var(--cards-orbit));
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
+  opacity: 1;
+}
+
+/* Hole Card Quiz: below Cards */
+.cards-options.show #hole-card-quiz-btn {
+  --tx: 0rem;
+  --ty: var(--cards-orbit);
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
+  opacity: 1;
+}
+
+/* Example additional slots if you add more later:
+   Right side, left side, diagonals, etc. You can copy one and change --tx/--ty. */

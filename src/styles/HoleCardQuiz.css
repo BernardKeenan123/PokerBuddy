@@ -1,0 +1,135 @@
+﻿.hc-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: #252525;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #f4f4f4;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.hc-back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+  background: #474747;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.hc-back-btn:hover {
+  background: #666;
+}
+
+.hc-container {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  min-width: 320px;
+  max-width: 480px;
+  text-align: center;
+}
+
+.hc-difficulty-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.hc-difficulty-row button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: #474747;
+  color: white;
+  cursor: pointer;
+}
+
+.hc-difficulty-row button:hover {
+  background-color: #b71c1c;
+}
+
+#question-container {
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+#question-container p {
+  margin-bottom: 0.75rem;
+}
+
+#question-container input {
+  margin-right: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  border: 1px solid #555;
+  background: #111;
+  color: #f4f4f4;
+}
+
+#question-container button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: #474747;
+  color: #fff;
+  cursor: pointer;
+}
+
+#question-container button:hover:not(:disabled) {
+  background-color: #b71c1c;
+}
+
+#timer {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.hc-feedback {
+  margin-top: 0.5rem;
+}
+
+.hc-finished {
+  margin-top: 1rem;
+}
+
+.hc-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;          /* <– spacing between the answer boxes */
+  margin-top: 0.75rem;
+  flex-wrap: wrap;    /* stops them squashing if the screen is narrow */
+}
+
+.hc-option {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: #474747;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hc-option:hover:enabled {
+  background-color: #b71c1c;
+}
+
+.finish-option {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 260px;
+}

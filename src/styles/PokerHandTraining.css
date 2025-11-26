@@ -1,0 +1,165 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden; /* Prevent overflow */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-end; /* Align content at the bottom */
+    text-align: center;
+    position: relative; /* Position for absolute children */
+}
+
+#upper-pane {
+    width: 100%;
+    height: 7em;
+    color: #fff;
+    background-color: #666;
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    left: 0;
+}
+
+#left-container {
+    position: fixed; /* Fixed positioning to ensure it's always on the screen */
+    left: 1em; /* Distance from the left of the viewport */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust to exactly center vertically */
+    text-align: left;
+}
+
+#button-group {
+    margin-bottom: 1em; /* Space from the bottom */
+    text-align: center;
+    width: 100%; /* Ensure full width */
+    max-width: 100%; /* Prevent overflow */
+}
+
+#click-start-text {
+    margin: 0 0 1em;
+    font-size: 24px; /* Adjust font size */
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 0.5em; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons if needed */
+    max-width: 100%; /* Prevent overflow */
+}
+
+    #buttons-container .btn {
+        padding: 10px 20px; /* Padding for size */
+        font-size: 16px; /* Font size */
+    }
+
+#stats {
+    list-style: none;
+    padding-left: 0;
+}
+
+#right-container {
+    float: right;
+    text-align: right;
+    margin: 0 1em;
+}
+
+#middle-pane {
+    width: 100%;
+    height: 70%;
+    position: relative;
+}
+
+#flashcard-text {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    font-size: 72pt;
+    text-align: center;
+}
+
+#flashcard-image-container {
+    height: 100%;
+    width: 100%;
+}
+
+.spacer {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#flashcard-image {
+    vertical-align: middle;
+    max-height: 80%;
+}
+
+#lower-pane {
+    width: 100%;
+    height: 12em;
+    background-color: #666;
+    position: fixed; /* Fixed at the bottom */
+    bottom: 0;
+    left: 0;
+}
+
+#buttons {
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+}
+
+.button {
+    width: 6em;
+    border: 1px outset #999;
+    margin: 0 0.5em; /* Space between buttons */
+}
+
+    .button:active {
+        border: 1px inset #999;
+    }
+
+.button-number {
+    line-height: 24pt;
+    font-size: 24pt;
+    margin: 0.5em;
+}
+
+.button-answer {
+    min-height: 12pt;
+    font-size: 12pt;
+    line-height: 12pt;
+    overflow: hidden;
+}
+
+#message {
+    color: #fff;
+}
+
+.btn {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for size */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Inline block */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+}
+
+    .btn:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+#backButton {
+    position: fixed; /* Fixed in place */
+    top: 10px; /* Distance from the top of the viewport */
+    left: 10px; /* Distance from the left of the viewport */
+}

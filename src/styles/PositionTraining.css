@@ -1,0 +1,213 @@
+﻿/* Reset and force styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure content is stacked vertically */
+    background-color: #252525 !important; /* Dark gray background */
+    font-family: 'Arial', sans-serif !important; /* Consistent font */
+    position: relative; /* For back button positioning */
+}
+
+/* Back button styling */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #474747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+/* Hover effect for the back button */
+.back-btn:hover {
+    background-color: #B71C1C;
+}
+
+/* Main content container styling */
+.content-container {
+    background-color: #333333; /* Slightly lighter background for better contrast */
+    padding: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow to make it stand out */
+    max-width: 800px;
+    width: 100%;
+    color: #ffffff; /* White text for readability */
+    text-align: center; /* Center text */
+}
+
+/* Main container for poker table */
+.table-container {
+    position: relative;
+    width: 900px; /* Match the poker table image width */
+    height: 500px; /* Match the poker table image height */
+    margin-bottom: 20px; /* Add space below the table */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Poker table image styling with a border */
+.poker-table-image {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #474747 !important; /* Add a border around the table */
+    border-radius: 8px; /* Add rounded corners to match the container */
+}
+
+/* Container for feedback and buttons */
+.guess-container {
+    background-color: #333333; /* Darker background for answer buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Wrap buttons if they overflow */
+    gap: 10px; /* Space between buttons */
+    padding: 10px;
+    width: 100%; /* Full width */
+    max-width: 900px; /* Match the poker table width */
+    margin-top: 20px; /* Space from the poker table */
+    border-radius: 8px; /* Match other elements */
+}
+
+/* Button wrapper to handle layout of buttons */
+.button-wrapper {
+    display: flex; /* Align buttons horizontally */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    gap: 10px; /* Space between buttons */
+}
+
+/* General button styling, now matching the "Back to Menu" button */
+button, .guess-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif !important; /* Consistent font */
+    border: none;
+    border-radius: 4px !important; /* Rounded corners */
+    background-color: #474747 !important; /* Same gray color as the back button */
+    color: white !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3) !important; /* Same box-shadow as back button */
+    text-transform: uppercase !important; /* Uppercase text style as back button */
+    margin: 5px !important;
+}
+
+/* Hover effect matching the back button */
+button:hover, .guess-button:hover {
+    background-color: #B71C1C !important; /* Darker red hover effect */
+}
+
+/* Disabled state for buttons */
+button:disabled, .guess-button:disabled {
+    background-color: #757575 !important; /* Gray for disabled buttons */
+    cursor: not-allowed;
+    box-shadow: none !important;
+}
+
+/* Correct and incorrect states using the same button style */
+.guess-button.correct {
+    background-color: #2ecc71 !important; /* Green for correct */
+}
+
+.guess-button.incorrect {
+    background-color: #e74c3c !important; /* Red for incorrect */
+}
+
+/* Feedback text styling */
+.feedback {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: #ffffff !important; /* Consistent text color */
+}
+
+.feedback.correct {
+    color: #2ecc71 !important; /* Green feedback for correct guess */
+}
+
+.feedback.incorrect {
+    color: #e74c3c !important; /* Red feedback for incorrect guess */
+}
+
+/* Player position styling */
+.player {
+    position: absolute !important;
+    width: 50px !important; /* Adjust size as needed */
+    height: 70px !important; /* Adjust size to accommodate label above */
+    display: flex;
+    flex-direction: column; /* Stack the label and image vertically */
+    justify-content: center !important; /* Center horizontally within the player div */
+    align-items: center !important; /* Center vertically within the player div */
+}
+
+/* Label for player position, placed above the player image */
+.position-label {
+    font-size: 12px !important;
+    color: white !important; /* Consistent text color for position names */
+    text-align: center !important;
+    margin-bottom: 5px; /* Add space between the label and the image */
+}
+
+/* Correct and incorrect position feedback */
+.player.correct {
+    border: 2px solid #2ecc71 !important; /* Green border for correct positions */
+    background-color: rgba(46, 204, 113, 0.2) !important; /* Light green background */
+}
+
+.player.incorrect {
+    border: 2px solid #e74c3c !important; /* Red border for incorrect positions */
+    background-color: rgba(231, 76, 60, 0.2) !important; /* Light red background */
+}
+
+/* Player position image styling */
+.position-img {
+    width: 100% !important; /* Fit within the player div */
+    height: 50px !important; /* Fixed height for player image */
+    object-fit: contain; /* Ensure the image retains aspect ratio */
+}
+
+/* Styling for poker chips */
+.chip {
+    position: absolute !important;
+    top: 50% !important; /* Center vertically */
+    left: 50% !important; /* Center horizontally */
+    transform: translate(-50%, -50%) !important; /* Center based on its own size */
+    background-color: gold !important; /* Example styling for the chip */
+    border-radius: 50% !important; /* Example styling for a circular chip */
+    padding: 5px 10px !important; /* Example padding */
+    color: white !important; /* Example text color */
+    font-weight: bold !important; /* Example text styling */
+}
+
+/* Back button styling */
+.back-btn {
+    position: fixed;
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #474747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+/* Hover effect for the back button */
+.back-btn:hover {
+    background-color: #B71C1C; /* Darker red on hover */
+}
