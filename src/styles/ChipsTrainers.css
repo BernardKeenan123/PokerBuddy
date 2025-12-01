@@ -1,4 +1,4 @@
-.rfi-page {
+.chips-trainer-page {
   height: 100vh;
   width: 100vw;
   background-color: #252525;
@@ -11,25 +11,36 @@
     sans-serif;
 }
 
-.rfi-container {
+.chips-trainer-container {
   background-color: #333;
-  padding: 1.5rem 2rem 2rem;
+  padding: 1.8rem 2.2rem 2.2rem;
   border-radius: 0.9rem;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
-  max-width: 920px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.7);
+  max-width: 720px;
   width: 90vw;
   text-align: center;
 }
 
-/* Difficulty selector row (similar style to other trainers) */
-.rfi-difficulty-row {
+.chips-trainer-container h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.ct-meta {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Difficulty selection */
+.ct-difficulty-row {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
   margin: 1rem 0 0.75rem;
 }
 
-.rfi-difficulty-row button {
+.ct-difficulty-row button {
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
   border: none;
@@ -42,105 +53,109 @@
     background-color 0.15s ease;
 }
 
-.rfi-difficulty-row button:hover {
+.ct-difficulty-row button:hover {
   background-color: #0d47a1;
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
 }
 
-.rfi-note {
+.ct-note {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #ccc;
 }
 
-.rfi-change-diff {
-  background-color: #555;
-  margin-left: 0.5rem;
-}
-
-.rfi-change-diff:hover {
-  background-color: #757575;
-}
-
-
-.rfi-container h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.rfi-meta {
+/* Info blocks */
+.ct-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
   margin-bottom: 0.75rem;
-  font-size: 0.9rem;
-  color: #ddd;
 }
 
-/* Hand grid */
-.rfi-hand-grid {
-  display: grid;
-  grid-template-columns: repeat(13, minmax(2.2rem, 1fr));
-  gap: 0.25rem;
-  justify-items: stretch;
-  margin: 0 auto 0.75rem;
+.ct-info-block {
+  background-color: #3d3d3d;
+  border-radius: 0.6rem;
+  padding: 0.7rem 1rem;
+  min-width: 180px;
 }
 
-.hand-cell {
-  border: 1px solid #555;
-  border-radius: 0.35rem;
-  padding: 0.3rem 0;
-  font-size: 0.75rem;
-  text-align: center;
-  background-color: #222;
-  box-sizing: border-box;
+.ct-info-block h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
 }
 
-/* Highlighted RFI range */
-.hand-cell.highlight {
-  background-color: #37474f;
-  border-color: #90caf9;
+.ct-info-block p {
+  margin: 0.1rem 0;
+  font-size: 0.85rem;
 }
 
-/* Result text */
-.rfi-result {
-  min-height: 1.4rem;
-  margin: 0.35rem 0 0.75rem;
+/* Timer & feedback */
+.ct-timer {
+  margin: 0.35rem 0 0.35rem;
   font-size: 0.9rem;
 }
 
-/* Position buttons */
-.rfi-position-buttons {
+.ct-feedback {
+  min-height: 1.2rem;
+  margin: 0.4rem 0 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* Input row */
+.ct-input-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.4rem;
-  margin-bottom: 0.3rem;
+  align-items: center;
+  margin-top: 0.3rem;
 }
 
-.position-btn {
-  padding: 0.45rem 0.8rem;
+.ct-input-row label {
+  font-size: 0.9rem;
+}
+
+.ct-input-row input[type="number"] {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.4rem;
+  border: none;
+  font-size: 0.9rem;
+  width: 5rem;
+  text-align: center;
+}
+
+.ct-submit-btn {
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
   border: none;
   background-color: #1976d2;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   cursor: pointer;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
   transition: background-color 0.15s ease, transform 0.1s ease,
     box-shadow 0.1s ease;
 }
 
-.position-btn:hover {
+.ct-submit-btn:hover:enabled {
   background-color: #0d47a1;
   transform: translateY(-1px);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Game over area */
-.rfi-gameover {
-  margin-top: 0.75rem;
+.ct-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
-.rfi-restart-btn {
+/* Results section */
+.ct-results {
+  margin-top: 0.8rem;
+}
+
+.ct-results button {
   margin-top: 0.5rem;
   padding: 0.45rem 1rem;
   border-radius: 999px;
@@ -154,21 +169,17 @@
     box-shadow 0.1s ease;
 }
 
-.rfi-restart-btn:hover {
+.ct-results button:hover {
   background-color: #2e7d32;
   transform: translateY(-1px);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6);
 }
 
-
-.correct-answer {
-  background-color: #2e7d32 !important; /* dark green */
-  border: 2px solid #4caf50 !important;
-  box-shadow: 0 0 8px #66bb6a;
+.ct-change-diff {
+  background-color: #555;
+  margin-left: 0.5rem;
 }
 
-.wrong-answer {
-  background-color: #c62828 !important; /* dark red */
-  border: 2px solid #ff5252 !important;
-  box-shadow: 0 0 8px #ef5350;
+.ct-change-diff:hover {
+  background-color: #757575;
 }

@@ -1,34 +1,23 @@
-﻿/* ===== Page layout ===== */
-
-body {
-  margin: 0;
-  background: #252525;
-}
-
-/* Full-screen center wrapper */
+﻿/* Full screen main menu */
 .menu-page {
   height: 100vh;
   width: 100vw;
+  background-color: #262626;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #262626;
 }
 
-/* Play + Train row, centred as a pair */
+/* Play + Train side by side */
 .menu-container {
-  position: relative;
   display: flex;
-  justify-content: center;   /* centre the pair */
   align-items: center;
-  gap: 7rem;                 /* distance between Play and Train */
-  width: 100%;
+  justify-content: center;
+  gap: 3rem;
 }
 
-/* ===== Common circular button styles ===== */
-
-.main-btn,
-.train-btn {
+/* Main circular buttons: Play / Train */
+.main-btn {
   background-color: #474747;
   border: 5px solid white;
   width: 7.5rem;
@@ -48,77 +37,86 @@ body {
   background-color: #b71c1c;
 }
 
-/* ===== Train + orbit buttons ===== */
-
+/* Wraps the Train button and its orbiting options */
 .train-wrapper {
-  position: relative; /* origin box for the orbiting buttons */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Container that covers the Train button area */
+/* Covers the Train button area for orbit buttons */
 .train-options {
   position: absolute;
-  inset: 0;                 /* top:0; right:0; bottom:0; left:0 relative to train-wrapper */
-  pointer-events: none;     /* prevent blocking clicks when hidden */
+  inset: 0;                 /* fill the wrapper */
+  pointer-events: none;     /* don't block clicks when hidden */
 }
 
-/* Blue orbit buttons (Cards / Chips / Position) */
+/* Orbit buttons (Cards / Chips / Position) */
 .train-btn {
   position: absolute;
   width: 6rem;
   height: 6rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   background-color: #1976d2;
   border-radius: 50%;
   border: 5px solid white;
   color: white;
   cursor: pointer;
 
-  /* Start at the centre of Train, invisible */
+  /* start at centre of Train */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+
+  /* offsets from centre (default 0) */
+  --tx: 0rem;
+  --ty: 0rem;
+
+  /* centre on Train, then apply offsets, then scale */
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(0);
   opacity: 0;
 
   transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
-  pointer-events: auto; /* clickable when visible */
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  pointer-events: auto;
 }
 
 .train-btn:hover {
   background-color: #0d47a1;
 }
 
-/* === Orbit radius: distance from Train's centre to each blue button's centre === */
+/* Orbit radius for menu train options */
 :root {
-  --orbit: 6rem;  /* change this value to move them in/out evenly */
+  --train-orbit: 10rem;
 }
 
-/* When menu is open, move them from centre outwards equally */
+/* When show=true, move them out from the centre */
 
-/* Cards: same x, move UP by orbit */
+/* Cards: above Train */
 .train-options.show #cards-btn {
-  top: calc(-45% - var(--orbit));
-  left: 9%;
-  transform: translate(-50%, -50%) scale(1);
+  --tx: 0rem;
+  --ty: calc(-1 * var(--train-orbit));
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
   opacity: 1;
 }
 
-/* Chips: same x, move DOWN by orbit */
+/* Chips: below Train */
 .train-options.show #chips-btn {
-  top: calc(45% + var(--orbit));
-  left: 9%;
-  transform: translate(-50%, -50%) scale(1);
+  --tx: 0rem;
+  --ty: var(--train-orbit);
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
   opacity: 1;
 }
 
-/* Position: same y, move RIGHT by orbit */
+/* Position: to the right of Train */
 .train-options.show #position-btn {
-  top: 3%;
-  left: calc(115% + var(--orbit));
-  transform: translate(-50%, -50%) scale(1);
+  --tx: var(--train-orbit);
+  --ty: 0rem;
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
   opacity: 1;
 }

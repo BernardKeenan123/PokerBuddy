@@ -1,123 +1,112 @@
-/* Reset and force styles */
-body {
-    background: #252525 !important; /* Dark gray background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+/* Full-screen chips page */
+.chips-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* local custom property for orbit distance */
+  --chips-orbit: 10rem;
 }
 
-/* Main container */
-.menu-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Container for the main Chips menu */
+.chips-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Main button styling */
-.main-btn, .train-btn {
-    background-color: #474747 !important; /* Gray poker chip color */
-    border: 5px solid white !important;
-    width: 120px !important;
-    height: 120px !important;
-    font-size: 18px !important;
-    border-radius: 50% !important;
-    color: white !important;
-    cursor: pointer !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s ease !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+/* Chips button in the middle */
+.chips-main-btn {
+  background-color: #474747;
+  border: 5px solid white;
+  width: 7.5rem;
+  height: 7.5rem;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.main-btn:hover, .train-btn:hover {
-    background-color: #B71C1C !important; /* Darker red on hover */
+.chips-main-btn:hover {
+  background-color: #b71c1c;
 }
 
-/* Train options (additional buttons) */
-.train-options {
-    position: absolute !important;
-    width: 100% !important;
-    height: 300px !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+/* Wrapper so options can be positioned relative to Chips */
+.chips-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.train-options.show {
-    visibility: visible !important;
-    opacity: 1 !important;
-    transition: opacity 0.3s ease !important;
+/* Covers the Chips button area */
+.chips-options {
+  position: absolute;
+  inset: 0;                 /* fill the wrapper */
+  pointer-events: none;     /* don't block clicks when hidden */
 }
 
-/* Styling for additional buttons */
-.train-btn {
-    background-color: #1976D2 !important; /* Blue background for train buttons */
-    border: 5px solid white !important;
-    width: 100px !important;
-    height: 100px !important;
-    font-size: 14px !important;
-    border-radius: 50% !important;
-    color: white !important;
-    cursor: pointer !important;
-    position: absolute !important;
-    transform: translate(0, 0) scale(0) !important;
-    opacity: 0 !important;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+/* Blue orbit buttons (M-Score / Effective M) */
+.chips-option-btn {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  font-size: 0.9rem;
+  background-color: #1976d2;
+  border-radius: 50%;
+  border: 5px solid white;
+  color: white;
+  cursor: pointer;
+
+  /* Start at centre of Chips */
+  top: 50%;
+  left: 50%;
+
+  /* offsets from centre (default 0) */
+  --tx: 0rem;
+  --ty: 0rem;
+
+  /* centre on Chips, then apply offsets, then scale */
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(0);
+  opacity: 0;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  pointer-events: auto;
 }
 
-.train-options.show .train-btn {
-    transform: translate(0, 0) scale(1) !important;
-    opacity: 1 !important;
+.chips-option-btn:hover {
+  background-color: #0d47a1;
 }
 
-/* Correct Circular positioning around the Chips button (equidistant) */
-/* Top button - Big Blind */
-#option1-btn {
-    top: -70px !important; /* Move above the Chips button */
-    left: 0 !important;     /* Center horizontally */
-    transition-delay: 0.1s !important;
+/* When show=true, move them out from the centre equally */
+
+/* M-Score: above Chips */
+.chips-options.show #mscore-btn {
+  --tx: 0rem;
+  --ty: calc(-1 * var(--chips-orbit));
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
+  opacity: 1;
 }
 
-/* Bottom left button - M Score */
-#option2-btn {
-    top: 100px !important;  /* Below the Chips button */
-    left: -170px !important; /* Shift left for perfect circular positioning */
-    transition-delay: 0.2s !important;
-}
-
-/* Bottom right button - Effective M */
-#option3-btn {
-    top: 100px !important;  /* Below the Chips button */
-    left: 170px !important;  /* Shift right for perfect circular positioning */
-    transition-delay: 0.3s !important;
-}
-
-/* Hover effect for additional buttons */
-.train-btn:hover {
-    background-color: #0D47A1 !important; /* Darker blue on hover */
-}
-
-/* Back button styling */
-.back-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #474747;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-}
-
-.back-btn:hover {
-    background-color: #B71C1C; /* Darker red on hover */
+/* Effective M: below Chips */
+.chips-options.show #effectiveM-btn {
+  --tx: 0rem;
+  --ty: var(--chips-orbit);
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty)))
+    scale(1);
+  opacity: 1;
 }

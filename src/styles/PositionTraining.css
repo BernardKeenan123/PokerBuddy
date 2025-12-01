@@ -1,213 +1,173 @@
-﻿/* Reset and force styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Ensure content is stacked vertically */
-    background-color: #252525 !important; /* Dark gray background */
-    font-family: 'Arial', sans-serif !important; /* Consistent font */
-    position: relative; /* For back button positioning */
+﻿.pt-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: #252525;
+  color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 
-/* Back button styling */
-.back-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #474747;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
+.pt-container {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  min-width: 360px;
+  max-width: 720px;
+  text-align: center;
 }
 
-/* Hover effect for the back button */
-.back-btn:hover {
-    background-color: #B71C1C;
+.pt-difficulty-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0 0.75rem;
 }
 
-/* Main content container styling */
-.content-container {
-    background-color: #333333; /* Slightly lighter background for better contrast */
-    padding: 30px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow to make it stand out */
-    max-width: 800px;
-    width: 100%;
-    color: #ffffff; /* White text for readability */
-    text-align: center; /* Center text */
+.pt-difficulty-row button {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
 }
 
-/* Main container for poker table */
-.table-container {
-    position: relative;
-    width: 900px; /* Match the poker table image width */
-    height: 500px; /* Match the poker table image height */
-    margin-bottom: 20px; /* Add space below the table */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pt-difficulty-row button:hover {
+  background-color: #0d47a1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
 }
 
-/* Poker table image styling with a border */
-.poker-table-image {
-    width: 100%;
-    height: 100%;
-    border: 5px solid #474747 !important; /* Add a border around the table */
-    border-radius: 8px; /* Add rounded corners to match the container */
+.pt-note {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #ccc;
 }
 
-/* Container for feedback and buttons */
-.guess-container {
-    background-color: #333333; /* Darker background for answer buttons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Wrap buttons if they overflow */
-    gap: 10px; /* Space between buttons */
-    padding: 10px;
-    width: 100%; /* Full width */
-    max-width: 900px; /* Match the poker table width */
-    margin-top: 20px; /* Space from the poker table */
-    border-radius: 8px; /* Match other elements */
+.pt-meta {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #ddd;
 }
 
-/* Button wrapper to handle layout of buttons */
-.button-wrapper {
-    display: flex; /* Align buttons horizontally */
-    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
-    gap: 10px; /* Space between buttons */
+.pt-table {
+  margin: 0 auto 0.75rem;
+  width: 400px;
+  height: 240px;
+  position: relative;
 }
 
-/* General button styling, now matching the "Back to Menu" button */
-button, .guess-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif !important; /* Consistent font */
-    border: none;
-    border-radius: 4px !important; /* Rounded corners */
-    background-color: #474747 !important; /* Same gray color as the back button */
-    color: white !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s ease !important;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3) !important; /* Same box-shadow as back button */
-    text-transform: uppercase !important; /* Uppercase text style as back button */
-    margin: 5px !important;
+.pt-table-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 200px;
+  background: radial-gradient(circle at center, #35654d 0%, #204030 60%, #111 100%);
+  border: 8px solid #654321;
+  position: relative;
+  overflow: visible;
 }
 
-/* Hover effect matching the back button */
-button:hover, .guess-button:hover {
-    background-color: #B71C1C !important; /* Darker red hover effect */
+.pt-table-felt {
+  position: absolute;
+  inset: 15%;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
 }
 
-/* Disabled state for buttons */
-button:disabled, .guess-button:disabled {
-    background-color: #757575 !important; /* Gray for disabled buttons */
-    cursor: not-allowed;
-    box-shadow: none !important;
+.pt-player {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 0.75rem;
+  color: #fff;
 }
 
-/* Correct and incorrect states using the same button style */
-.guess-button.correct {
-    background-color: #2ecc71 !important; /* Green for correct */
+.pt-player-chip {
+  background-color: #444;
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid #fff;
+  font-size: 0.7rem;
+  min-width: 2rem;
 }
 
-.guess-button.incorrect {
-    background-color: #e74c3c !important; /* Red for incorrect */
+.pt-player.dealer .pt-player-chip {
+  background-color: #d32f2f;
 }
 
-/* Feedback text styling */
-.feedback {
-    font-size: 18px !important;
-    font-weight: bold !important;
-    color: #ffffff !important; /* Consistent text color */
+.pt-player.hero .pt-player-chip {
+  background-color: #1976d2;
 }
 
-.feedback.correct {
-    color: #2ecc71 !important; /* Green feedback for correct guess */
+.pt-hero-indicator {
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #ffd54f;
 }
 
-.feedback.incorrect {
-    color: #e74c3c !important; /* Red feedback for incorrect guess */
+.pt-timer {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 0.9rem;
 }
 
-/* Player position styling */
-.player {
-    position: absolute !important;
-    width: 50px !important; /* Adjust size as needed */
-    height: 70px !important; /* Adjust size to accommodate label above */
-    display: flex;
-    flex-direction: column; /* Stack the label and image vertically */
-    justify-content: center !important; /* Center horizontally within the player div */
-    align-items: center !important; /* Center vertically within the player div */
+.pt-feedback {
+  margin-bottom: 0.5rem;
+  min-height: 1.2rem;
+  font-size: 0.9rem;
 }
 
-/* Label for player position, placed above the player image */
-.position-label {
-    font-size: 12px !important;
-    color: white !important; /* Consistent text color for position names */
-    text-align: center !important;
-    margin-bottom: 5px; /* Add space between the label and the image */
+.pt-guess-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-/* Correct and incorrect position feedback */
-.player.correct {
-    border: 2px solid #2ecc71 !important; /* Green border for correct positions */
-    background-color: rgba(46, 204, 113, 0.2) !important; /* Light green background */
+.pt-guess-button {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-.player.incorrect {
-    border: 2px solid #e74c3c !important; /* Red border for incorrect positions */
-    background-color: rgba(231, 76, 60, 0.2) !important; /* Light red background */
+.pt-guess-button:hover:enabled {
+  background-color: #1976d2;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Player position image styling */
-.position-img {
-    width: 100% !important; /* Fit within the player div */
-    height: 50px !important; /* Fixed height for player image */
-    object-fit: contain; /* Ensure the image retains aspect ratio */
+.pt-guess-button.correct {
+  background-color: #2e7d32;
 }
 
-/* Styling for poker chips */
-.chip {
-    position: absolute !important;
-    top: 50% !important; /* Center vertically */
-    left: 50% !important; /* Center horizontally */
-    transform: translate(-50%, -50%) !important; /* Center based on its own size */
-    background-color: gold !important; /* Example styling for the chip */
-    border-radius: 50% !important; /* Example styling for a circular chip */
-    padding: 5px 10px !important; /* Example padding */
-    color: white !important; /* Example text color */
-    font-weight: bold !important; /* Example text styling */
+.pt-guess-button.incorrect {
+  background-color: #c62828;
 }
 
-/* Back button styling */
-.back-btn {
-    position: fixed;
-    top: 20px; /* Distance from the top */
-    left: 20px; /* Distance from the left */
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #474747;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
+.pt-results {
+  margin-top: 1rem;
 }
 
-/* Hover effect for the back button */
-.back-btn:hover {
-    background-color: #B71C1C; /* Darker red on hover */
+.pt-finish-button {
+  margin-top: 0.75rem;
+  max-width: 260px;
+  width: 100%;
 }
