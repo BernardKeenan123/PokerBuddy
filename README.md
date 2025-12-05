@@ -1,16 +1,60 @@
-# React + Vite
+🎰 PokerBuddy - Poker Training Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PokerBuddy is a modern, React-based training tool designed to help players quickly improve their understanding of poker hand strength, positions, ranges, M-score, effective M, and more.
 
-Currently, two official plugins are available:
+This project is a full rebuild of the original “Poker Buddy” JavaScript app, redesigned with cleaner UI/UX, improved logic, and an expandable component structure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features (Current)
 
-## React Compiler
+Difficulty selection (Easy / Medium / Hard)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Cards Training
 
-## Expanding the ESLint configuration
+Hand Recognition - Identify the correct hand ranking from random 5-card boards
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Hole Card Quiz - Multiple-choice training for equity concepts and opponent combination counts
+
+Position Training
+
+Seat Names Trainer - Learn the names of table positions
+
+RFI Trainer - Guess the correct Raise-First-In range from visual hand grids
+
+Chips Training
+
+M-Score Trainer - Calculate how many orbits your stack can survive
+
+Effective M Trainer - Short-handed adjustme
+
+🛠️ Tech Stack
+
+React (Vite)
+
+JavaScript / JSX
+
+CSS
+
+React Router
+
+Fully client-side - no backend required(Yet)
+
+📦 Installation & Running Locally
+# Clone the repo
+git clone https://github.com/BernardKeenan123/PokerBuddy
+cd poker-buddy-react
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+🔮 Planned / Upcoming Features
+Improved UI
+
+Potentially more training modes - Q score, Implied odds, Pot odds
+
+Adaptive Neural Network Opponent (Planned) -
+A non-traditional “bot” opponent powered by a lightweight neural network.
+Instead of using fixed strategies, the model will learn from each user’s performance across the training modules, adapting to their strengths, weaknesses, range understanding, and decision patterns.
+Over time, the bot becomes more challenging and personalised, creating a dynamic opponent that improves as the player does. 
