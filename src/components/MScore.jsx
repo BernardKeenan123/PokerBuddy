@@ -67,7 +67,7 @@ function generateMQuestion() {
     Chip_stack = M_value;
   }
 
-  const M_score = Math.floor((Chip_stack + M_value - 1) / M_value);
+  const M_score = Math.floor(Chip_stack / M_value);
 
   return {
     SB,

@@ -65,7 +65,7 @@ function generateEffectiveMQuestion() {
     Chip_stack = M_value;
   }
 
-  const M_score = Math.floor((Chip_stack + M_value - 1) / M_value);
+  const M_score = Math.floor(Chip_stack / M_value);
   const Effective_M = Math.floor(M_score * (No_players / 9));
 
   return {
